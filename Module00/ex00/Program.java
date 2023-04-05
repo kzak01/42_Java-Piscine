@@ -1,6 +1,16 @@
-package Module00.ex00;
-public class Program {
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Program.java                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/05 11:37:37 by kzak              #+#    #+#             */
+/*   Updated: 2023/04/05 11:46:58 by kzak             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+public class Program {
 
 	public static int addPutNumber(int number, int plus) {
 		boolean isNegative = false;
@@ -31,5 +41,6 @@ public class Program {
 		int plus = addPutNumber(number, 0);
 
 		System.out.println(plus);
+		System.exit(0);
 	}
 }
