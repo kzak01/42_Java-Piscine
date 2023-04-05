@@ -6,7 +6,7 @@
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:37:37 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/05 11:46:58 by kzak             ###   ########.fr       */
+/*   Updated: 2023/04/05 12:27:47 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public class Program {
 	// 	plus += number % 10;
 	// 	return plus;
 	// }
-	
+
 	public static void main(String[] args) {
 		int number = -479598;
 		int plus = addPutNumber(number, 0);
