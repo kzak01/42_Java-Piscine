@@ -6,7 +6,7 @@
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 18:45:00 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/05 19:38:46 by kzak             ###   ########.fr       */
+/*   Updated: 2023/04/05 20:03:51 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@ public class Program {
 		int		grade = 0;
 
 		while (true) {
-			System.out.println("-> Week " + (currentWeek + 1));
+			String	week = scanner.next();
 
+			if (week.equals("Week " + (currentWeek + 1))) {
+				scanner.close();
+				System.err.println("IllegalArgument");
+				System.exit(-1);
+			}
 			for (int i = 0; i < 5; i++) {
 				grade = scanner.nextInt();
 
