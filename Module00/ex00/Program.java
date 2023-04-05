@@ -6,7 +6,7 @@
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 11:37:37 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/05 12:27:47 by kzak             ###   ########.fr       */
+/*   Updated: 2023/04/05 18:19:57 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ public class Program {
 
 		if (number < 0) {
 			isNegative = true;
-			number = Math.abs(number);
+			number = -number;
 		}
 		if (number >= 10) {
 			plus = addPutNumber(number / 10, plus);
@@ -28,13 +28,6 @@ public class Program {
 		}
 		return plus;
 	}
-	// public static int addPutNumber(int number, int plus) {
-	// 	if (number >= 10) {
-	// 		plus = addPutNumber(number / 10, plus);
-	// 	}
-	// 	plus += number % 10;
-	// 	return plus;
-	// }
 
 	public static void main(String[] args) {
 		int number = -479598;
