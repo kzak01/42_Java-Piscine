@@ -6,7 +6,7 @@
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 12:28:31 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/05 18:35:59 by kzak             ###   ########.fr       */
+/*   Updated: 2023/04/11 12:57:36 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,15 @@ public class Program {
 				System.exit(-1);
 			}
 			int digitSum = addPutNumber(currentValue, 0);
+
+			int		square = 1;
+			while (square * square <= digitSum) {
+				square++;
+			}
+			square--;
+
 			boolean isPrime = true;
-	
-			for (int i = 2; i <= Math.sqrt(digitSum); i++) {
+			for (int i = 2; i <= square; i++) {
 				if (digitSum % i == 0) {
 					isPrime = false;
 					break;
