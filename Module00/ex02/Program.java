@@ -6,7 +6,7 @@
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 12:28:31 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/11 12:57:36 by kzak             ###   ########.fr       */
+/*   Updated: 2023/04/12 11:48:38 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,10 @@ import java.util.Scanner;
 public class Program {
 
 	public static int addPutNumber(int number, int plus) {
-		boolean isNegative = false;
-
-		if (number < 0) {
-			isNegative = true;
-			number = -number;
-		}
 		if (number >= 10) {
 			plus = addPutNumber(number / 10, plus);
 		}
 		plus += number % 10;
-		if (isNegative) {
-			plus = -plus;
-		}
 		return plus;
 	}
 
@@ -63,7 +54,8 @@ public class Program {
 		}
 
 		scanner.close();
-		System.out.println("Count of coffee - request - " + coffeCounter);
+		System.out.print("Count of coffee - request - ");
+		System.out.println(coffeCounter);
 		System.exit(0);
 	}
 }

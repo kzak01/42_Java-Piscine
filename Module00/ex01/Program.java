@@ -6,7 +6,7 @@
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 12:55:33 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/11 12:56:16 by kzak             ###   ########.fr       */
+/*   Updated: 2023/04/12 11:45:51 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ public class Program {
 		}
 
 		int		square = 1;
-		while (square * square <= currentValue) {
+		while (square * square <= currentValue)
 			square++;
-		}
 		square--;
 
 		boolean	isPrime = true;
@@ -41,7 +40,9 @@ public class Program {
 		}
 
 		scanner.close();
-		System.out.println(isPrime + " " + steps);
+		System.out.print(isPrime);
+		System.out.print(" ");
+		System.out.println(step);
 		System.exit(0);
 	}
 }
