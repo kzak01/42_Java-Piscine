@@ -6,7 +6,7 @@
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 12:55:33 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/12 11:45:51 by kzak             ###   ########.fr       */
+/*   Updated: 2023/04/12 20:56:57 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ public class Program {
 		scanner.close();
 		System.out.print(isPrime);
 		System.out.print(" ");
-		System.out.println(step);
+		System.out.println(steps);
 		System.exit(0);
 	}
 }

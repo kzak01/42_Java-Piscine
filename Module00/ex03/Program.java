@@ -6,7 +6,7 @@
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 18:45:00 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/12 14:56:18 by kzak             ###   ########.fr       */
+/*   Updated: 2023/04/12 20:58:45 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ public class Program {
 		}
 
 		scanner.close();
-		long reverseMinGrades = reverse(minGrades);
+		long	reverseMinGrades = reverse(minGrades);
 		for (int i = 0; i < currentWeek; i++) {
 			System.out.print("Week ");
 			System.out.print(i + 1);
@@ -74,8 +74,9 @@ public class Program {
 		return minGrade;
 	}
 
-	public static long reverse(long minGrade) {
-		long reverse = 0;
+	public static long	reverse(long minGrade) {
+		long	reverse = 0;
+
 		while (minGrade > 0) {
 			reverse = reverse * 10 + (minGrade % 10);
 			minGrade /= 10;
