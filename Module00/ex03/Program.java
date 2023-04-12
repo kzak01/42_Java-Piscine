@@ -6,7 +6,7 @@
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 18:45:00 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/12 11:43:01 by kzak             ###   ########.fr       */
+/*   Updated: 2023/04/12 12:22:22 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,34 @@ public class Program {
 		System.exit(-1);
 	}
 
-	public static void	getMinGrade(Scanner scanner, int[] minGrades, int currentWeek) {
+	public static long	getMinGrade(Scanner scanner, int currentWeek) {
 		int	currentTest = 0;
 		int	grade = 0;
+		int	minGrade = 0;
 
 		for (int i = 0; i < 5; i++) {
 			grade = scanner.nextInt();
 			if (grade < 1 || grade > 9)
 				error_handler(scanner);
-			if (currentTest == 0 || grade < minGrades[currentWeek])
-				minGrades[currentWeek] = grade;
+			if (currentTest == 0 || grade < minGrade)
+				minGrade = grade;
 			currentTest++;
 			}
+		return minGrade;
+	}
+
+	public static long reverse(long minGrade) {
+		long reverse = 0;
+		while (minGrade > 0) {
+			reverse = reverse * 10 + (minGrade % 10);
+			minGrade /= 10;
+		}
+		return reverse;
 	}
 
 	public static void main(String[] args) {
 		Scanner	scanner = new Scanner(System.in);
-		int[]	minGrades = new int[18];
+		long	minGrades = 0;
 		int		currentWeek = 0;
 
 		while (true) {
@@ -48,7 +59,7 @@ public class Program {
 			else if (week.equals("Week")) {
 				int	weekNbr = scanner.nextInt();
 				if (weekNbr == currentWeek + 1) {
-					getMinGrade(scanner, minGrades, currentWeek);
+					minGrades = minGrades * 10 + getMinGrade(scanner, currentWeek);
 					currentWeek++;
 				}
 				else
@@ -59,11 +70,15 @@ public class Program {
 		}
 
 		scanner.close();
+		long reverseMinGrades = reverse(minGrades);
 		for (int i = 0; i < currentWeek; i++) {
-			System.out.print("Week " + (i + 1) + " ");
-			for (int j = 1; j <= minGrades[i]; j++)
+			System.out.print("Week ");
+			System.out.print(i + 1);
+			System.out.print(" ");
+			for (int j = 1; j <= reverseMinGrades % 10; j++)
 				System.out.print("=");
 			System.out.println(">");
+			reverseMinGrades /= 10;
 		}
 		System.exit(0);
 	}
