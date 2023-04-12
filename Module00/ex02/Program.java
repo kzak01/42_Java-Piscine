@@ -6,7 +6,7 @@
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 12:28:31 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/12 11:48:38 by kzak             ###   ########.fr       */
+/*   Updated: 2023/04/12 14:54:32 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ public class Program {
 	}
 
 	public static void main(String[] argv) {
-		Scanner scanner = new Scanner(System.in);
-		int currentValue = scanner.nextInt();
-		int coffeCounter = 0;
+		Scanner	scanner = new Scanner(System.in);
+		int		currentValue = scanner.nextInt();
+		int		coffeCounter = 0;
 
 		while (currentValue != 42) {
 			if (currentValue < 1) {
@@ -33,12 +33,11 @@ public class Program {
 				System.err.println("IllegalArgument");
 				System.exit(-1);
 			}
-			int digitSum = addPutNumber(currentValue, 0);
+			int	digitSum = addPutNumber(currentValue, 0);
 
-			int		square = 1;
-			while (square * square <= digitSum) {
+			int	square = 1;
+			while (square * square <= digitSum)
 				square++;
-			}
 			square--;
 
 			boolean isPrime = true;
