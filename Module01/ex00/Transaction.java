@@ -5,53 +5,91 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 12:40:21 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/14 12:40:24 by kzak             ###   ########.fr       */
+/*   Created: 2023/04/17 12:00:07 by kzak              #+#    #+#             */
+/*   Updated: 2023/04/17 12:47:59 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+package Module01.ex00;
 
 import java.util.UUID;
 
 public class Transaction {
-	private UUID	_id;
-	private User	_reciver;
-	private User	_sender;
-	private String	_transferMoney;
-	private double	_transferAmount;
+	private UUID	identifier;
+	private User	recipient;
+	private User	sender;
+	private TransferCategory	transferCategory;
+	private double	transferAmount;
 
-	public Transaction(User reciver, User sender, String transferMoney, double transferAmount) {
-		this._id = UUID.randomUUID();
-		this._reciver = reciver;
-		this._sender = sender;
-		this._transferMoney = transferMoney;
-		this._transferAmount = transferAmount;
+	public enum TransferCategory {
+		DEBITS,
+		CREDITS
 	}
 
-	public UUID getId() {
-		return _id;
+	public Transaction(User recipient, User sender,
+			TransferCategory transferCategory, double transferAmount) {
+		this.identifier = UUID.randomUUID();
+		this.recipient = recipient;
+		this.sender = sender;
+		this.transferCategory = transferCategory;
+		setTransferAmount(transferAmount);
 	}
 
-	public User getReciver() {
-		return _reciver;
+	public UUID getIdentifier() {
+		return identifier;
+	}
+
+	public User getRecipient() {
+		return recipient;
 	}
 
 	public User getSender() {
-		return _sender;
+		return sender;
 	}
 
-	public String getTransferMoney() {
-		return _transferMoney;
+	public TransferCategory getTransferCategory() {
+		return transferCategory;
 	}
 
 	public double getTransferAmount() {
-		return _transferAmount;
+		return transferAmount;
 	}
 
-	public String toString() {
-		return "Transaction: id = " + _id +
-				", reciver= " + _reciver +
-				", sender= " + _sender +
-				", transferMoney= '" + _transferMoney +
-				'\'' + ", transferAmount= " + _transferAmount + "\n";
+	public void setIdentifier(UUID id) {
+		this.identifier = id;
+	}
+	
+	public void setRecipient(User recipient) {
+		this.recipient = recipient;
+	}
+
+	public void setSendet(User sender) {
+		this.sender = sender;
+	}
+
+	public void setTransferCategory(TransferCategory transferCategory) {
+		this.transferCategory = transferCategory;
+	}
+
+	public void setTransferAmount(double transferAmount) {
+		if (this.transferCategory == TransferCategory.CREDITS
+			&& (transferAmount > 0 || sender.getBalance() < transferAmount)) {
+			this.transferAmount = 0.0;
+			System.out.println("Transaction failed.");
+		} else if (this.transferCategory == TransferCategory.DEBITS
+			&& (transferAmount < 0 || sender.getBalance() < transferAmount)) {
+			this.transferAmount = 0.0;
+			System.out.println("Transaction failed.");
+		} else {
+			this.transferAmount = transferAmount;
+			if (transferCategory == TransferCategory.CREDITS) {
+				recipient.setBalance(recipient.getBalance() - transferAmount);
+				sender.setBalance(sender.getBalance() + transferAmount);
+			} else {
+				recipient.setBalance(recipient.getBalance() + transferAmount);
+				sender.setBalance(sender.getBalance() - transferAmount);
+			}
+			System.out.println("Transaction succesfully finish.");
+		}
 	}
 }

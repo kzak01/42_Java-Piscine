@@ -5,24 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 12:40:18 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/14 12:40:32 by kzak             ###   ########.fr       */
+/*   Created: 2023/04/17 12:16:45 by kzak              #+#    #+#             */
+/*   Updated: 2023/04/17 12:53:16 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-import java.util.Scanner;
+package Module01.ex00;
+
+import Module01.ex00.Transaction.TransferCategory;
 
 public class Program {
+	public static void main(String[] args) {
+		User user1 = new User(1,"Lorenzo", 1000.0);
+		User user2 = new User(2, "Michela", 2000.0);
+		User user3 = new User(3, "Valerio", 500.0);
+		
+		System.out.println("User1: " + user1.getName()
+					+ ", Balance: " + user1.getBalance());
+		System.out.println("User2: " + user2.getName()
+					+ ", Balance: " + user2.getBalance());
+		System.out.println("User3: " + user3.getName()
+					+ ", Balance: " + user3.getBalance());
 
-	public static void	main(String[] args) {
-		User user1 = new User(1, "Lorenzo", 300.0);
-		User user2 = new User(2, "Valerio", 400.0);
+		Transaction transaction = new Transaction(user1, user2,
+				TransferCategory.DEBITS, 100.0);
 
-		System.out.println(user1);
-		System.out.println(user2);
 
-		Transaction transaction = new Transaction(user2, user1, "debit", 100.0);
+		System.out.println("User1: " + user1.getName()
+					+ ", Balance: " + user1.getBalance());
+		System.out.println("User2: " + user2.getName()
+					+ ", Balance: " + user2.getBalance());
 
-		System.out.println(transaction);
+		User user4 = new User(4, "Lorenzo", 200.0);
+		System.out.println("User4: " + user4.getName()
+		+ ", Balance: " + user4.getBalance());
 	}
 }
+
+
+
