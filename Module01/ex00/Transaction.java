@@ -6,7 +6,7 @@
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 12:00:07 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/17 12:47:59 by kzak             ###   ########.fr       */
+/*   Updated: 2023/04/17 15:34:44 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,12 @@ public class Transaction {
 			}
 			System.out.println("Transaction succesfully finish.");
 		}
+	}
+
+	public String toString() {
+		return "\033[0;32mRecipient: \033[0m" + recipient
+				+ "\033[0;32m\nSender: \033[0m" + sender
+				+ "\033[0;32m\nIdentifier: \033[0m" + identifier
+				+ "\033[0;32m\nTransfer Amount: \033[0m" + transferAmount;
 	}
 }

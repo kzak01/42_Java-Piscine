@@ -5,20 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzak <kzak@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 11:53:19 by kzak              #+#    #+#             */
-/*   Updated: 2023/04/17 15:32:15 by kzak             ###   ########.fr       */
+/*   Created: 2023/04/17 13:09:04 by kzak              #+#    #+#             */
+/*   Updated: 2023/04/17 15:48:38 by kzak             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-package Module01.ex00;
+package Module01.ex02;
 
 public class User {
-	private int		identifier;
-	private String	name;
-	private double	balance;
+	private final int	identifier;
+	private String		name;
+	private double		balance;
 
-	public User(int identifier, String name, double balance) {
-		this.identifier = identifier;
+
+	public User(String name, double balance) {
+		this.identifier = UserIdsGenerator.getInstance().generateId();
 		this.name = name;
 		if (balance > 0)
 			this.balance = balance;
@@ -36,10 +37,6 @@ public class User {
 
 	public double getBalance() {
 		return balance;
-	}
-
-	public void setIdentifier(int identifier) {
-		this.identifier = identifier;
 	}
 
 	public void setName(String name) {
